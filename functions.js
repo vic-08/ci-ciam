@@ -823,5 +823,6 @@ module.exports = {
   setupMfaPolicy: setupMfaPolicy,
   findAccount: findAccount,
   createUser: createUser,
-  titleCase: titleCase
+  titleCase: titleCase,
+  uuidv4: uuidv4
 };

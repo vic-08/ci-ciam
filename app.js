@@ -10,6 +10,7 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var bbfn = require('./functions.js');
 var hbs =  require('hbs');
+var cors = require('cors')
 
 // register new function for handlebars
 hbs.registerHelper('formatDate', function(badDate) {
@@ -112,6 +113,7 @@ app.use(bodyParser.urlencoded({
   extended: false
 }));
 app.use(cookieParser());
+app.use(cors());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Passport requires session to persist the authentication
@@ -166,6 +168,14 @@ app.get('/login-google', passport.authenticate('openidconnect', {
   scope: 'email profile',
   login_hint: `{"realm":"www.google.com"}`
 }));
+app.get('/do-mfa', function(req, res) {
+  let url = process.env.OIDC_CI_BASE_URI + "/oidc/endpoint/default/authorize?client_id=" +
+            process.env.OIDC_CLIENT_ID + "&response_type=code&redirect_uri=" +
+            process.env.OIDC_REDIRECT_URI + 
+            '&acr_values=urn:ibm:security:policy:id:22849' + 
+            '&state=' + bbfn.uuidv4();
+  res.redirect(url);
+});
 // app.get('/new-linkedin', passport.authenticate('openidconnect', {
 //   successReturnToOrRedirect: "/open-account",
 //   scope: 'email profile',
