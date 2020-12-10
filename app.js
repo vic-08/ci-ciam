@@ -10,7 +10,6 @@ var bodyParser = require('body-parser');
 var session = require('express-session');
 var bbfn = require('./functions.js');
 var hbs =  require('hbs');
-var cors = require('cors')
 
 // register new function for handlebars
 hbs.registerHelper('formatDate', function(badDate) {
@@ -113,7 +112,6 @@ app.use(bodyParser.urlencoded({
   extended: false
 }));
 app.use(cookieParser());
-app.use(cors());
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Passport requires session to persist the authentication
