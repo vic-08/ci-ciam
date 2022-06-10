@@ -3,8 +3,7 @@
 <root>
 <Message>
   <Value>
-    Su código de acceso es: @OTP_STRING@.
-Caduca en @OTP_LIFETIME@ minutos.
+    Su código de acceso es: @CORRELATION@-@OTP@. Caduca en @OTP_LIFETIME@ minutos.
   </Value>
 </Message>
 </root>

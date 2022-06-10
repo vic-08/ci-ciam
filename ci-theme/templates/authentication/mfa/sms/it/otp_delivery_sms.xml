@@ -3,8 +3,7 @@
 <root>
 <Message>
   <Value>
-    Il passcode è: @OTP_STRING@.
-Scade tra @OTP_LIFETIME@ minuti.
+    Il passcode è: @CORRELATION@-@OTP@. Scade tra @OTP_LIFETIME@ minuti.
   </Value>
 </Message>
 </root>

@@ -3,8 +3,7 @@
 <root>
 <Message>
   <Value>
-    A jelszó: @OTP_STRING@.
-@OTP_LIFETIME@ perc múlva lejár.
+    A belépési kódja: @CORRELATION@-@OTP@. @OTP_LIFETIME@ perc múlva lejár.
   </Value>
 </Message>
 </root>

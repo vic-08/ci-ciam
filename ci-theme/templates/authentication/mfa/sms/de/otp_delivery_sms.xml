@@ -3,8 +3,7 @@
 <root>
 <Message>
   <Value>
-    Ihr Kenncode ist: @OTP_STRING@.
-Er läuft in @OTP_LIFETIME@ Minuten ab.
+    Ihr Kenncode ist: @CORRELATION@-@OTP@. Er läuft in @OTP_LIFETIME@ Minuten ab.
   </Value>
 </Message>
 </root>

@@ -1,126 +1,13 @@
+<!-- Template file path: templates/authentication/device_manager/new_device/default/trusteer_snippets_verifying_eu.html  -->
 <!DOCTYPE html>
 <html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,shrink-to-fit=no">
-<link rel="manifest" href="/usc/manifest.json">
-<link rel="shortcut icon" href="/usc/favicon.ico">
 
 <head>
-  <title>Please wait...</title>
-  <style>
-    .loader {
-      border: 16px solid #f3f3f3;
-      border-radius: 50%;
-      border-top: 16px solid #3498db;
-      width: 120px;
-      height: 120px;
-      -webkit-animation: spin 2s linear infinite;
-      animation: spin 2s linear infinite
-    }
-
-    @-webkit-keyframes spin {
-      0% {
-        -webkit-transform: rotate(0)
-      }
-      100% {
-        -webkit-transform: rotate(360deg)
-      }
-    }
-
-    @keyframes spin {
-      0% {
-        transform: rotate(0)
-      }
-      100% {
-        transform: rotate(360deg)
-      }
-    }
-
-    @font-face {
-      font-family: ibm-plex-mono;
-      font-style: normal;
-      font-weight: 400;
-      src: url(https://unpkg.com/carbon-components@latest/src/globals/fonts/IBMPlexMono-Regular.woff) format("woff")
-    }
-
-    @font-face {
-      font-family: ibm-plex-mono;
-      font-style: normal;
-      font-weight: 400;
-      src: url(https://unpkg.com/carbon-components@latest/src/globals/fonts/IBMPlexMono-Regular-Pi.woff2) format("woff2");
-      unicode-range: "U+03C0, U+0E3F, U+2070, U+2074-2079, U+2080-2089, U+2113, U+2116, U+2126, U+212E, U+2150-2151, U+2153-215E, U+2190-2199, U+21A9-21AA, U+21B0-21B3, U+21B6-21B7, U+21BA-21BB, U+21C4, U+21C6, U+2202, U+2206, U+220F, U+2211, U+221A, U+221E, U+222B, U+2248, U+2260, U+2264-2265, U+25CA, U+2713, U+274C, U+2B0E-2B11, U+EBE1, U+EBE3-EBE4, U+EBE6-EBE7, U+ECE0, U+EFCC"
-    }
-
-    @font-face {
-      font-family: ibm-plex-mono;
-      font-style: normal;
-      font-weight: 400;
-      src: url(https://unpkg.com/carbon-components@latest/src/globals/fonts/IBMPlexMono-Regular-Latin3.woff2) format("woff2");
-      unicode-range: "U+0102-0103, U+1EA0-1EF9, U+20AB"
-    }
-
-    @font-face {
-      font-family: ibm-plex-mono;
-      font-style: normal;
-      font-weight: 400;
-      src: url(https://unpkg.com/carbon-components@latest/src/globals/fonts/IBMPlexMono-Regular-Latin2.woff2) format("woff2");
-      unicode-range: "U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF, U+FB01-FB02"
-    }
-
-    @font-face {
-      font-family: ibm-plex-mono;
-      font-style: normal;
-      font-weight: 400;
-      src: url(https://unpkg.com/carbon-components@latest/src/globals/fonts/IBMPlexMono-Regular-Latin1.woff2) format("woff2");
-      unicode-range: "U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2212, U+FB01-FB02"
-    }
-
-    @font-face {
-      font-family: ibm-plex-sans;
-      font-style: normal;
-      font-weight: 400;
-      src: url(https://unpkg.com/carbon-components@latest/src/globals/fonts/IBMPlexSans-Regular.woff) format("woff")
-    }
-
-    @font-face {
-      font-family: ibm-plex-sans;
-      font-style: normal;
-      font-weight: 400;
-      src: url(https://unpkg.com/carbon-components@latest/src/globals/fonts/IBMPlexSans-Regular-Pi.woff2) format("woff2");
-      unicode-range: "U+03C0, U+0E3F, U+2070, U+2074-2079, U+2080-2089, U+2113, U+2116, U+2126, U+212E, U+2150-2151, U+2153-215E, U+2190-2199, U+21A9-21AA, U+21B0-21B3, U+21B6-21B7, U+21BA-21BB, U+21C4, U+21C6, U+2202, U+2206, U+220F, U+2211, U+221A, U+221E, U+222B, U+2248, U+2260, U+2264-2265, U+25CA, U+2713, U+274C, U+2B0E-2B11, U+EBE1, U+EBE3-EBE4, U+EBE6-EBE7, U+ECE0, U+EFCC"
-    }
-
-    @font-face {
-      font-family: ibm-plex-sans;
-      font-style: normal;
-      font-weight: 400;
-      src: url(https://unpkg.com/carbon-components@latest/src/globals/fonts/IBMPlexSans-Regular-Latin3.woff2) format("woff2");
-      unicode-range: "U+0102-0103, U+1EA0-1EF9, U+20AB"
-    }
-
-    @font-face {
-      font-family: ibm-plex-sans;
-      font-style: normal;
-      font-weight: 400;
-      src: url(https://unpkg.com/carbon-components@latest/src/globals/fonts/IBMPlexSans-Regular-Latin2.woff2) format("woff2");
-      unicode-range: "U+0100-024F, U+0259, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF, U+FB01-FB02"
-    }
-
-    @font-face {
-      font-family: ibm-plex-sans;
-      font-style: normal;
-      font-weight: 400;
-      src: url(https://unpkg.com/carbon-components@latest/src/globals/fonts/IBMPlexSans-Regular-Latin1.woff2) format("woff2");
-      unicode-range: "U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2212, U+FB01-FB02"
-    }
-
-    div {
-      font-family: ibm-plex-sans
-    }
-  </style>
-
+  <title>$TRUSTEER_VERIFYING_PAGE_TITLE$</title>
   <script type="text/javascript">
-    (function() {
+    (function () {
       var d = document,
         c = window,
         g = c.location.protocol,
@@ -128,15 +15,15 @@
         f = d.getElementsByTagName("head")[0];
       b.src = (g == "https:" ? "https://" : "http://") + "@TENANT_URL@/@TRUSTEER_JUNCTION@/@SNIPPET_ID@/@MALWARE_DETECTION_JS_NAME@?r=" + Math.random();
       b.async = true;
-      setTimeout(function() {
+      setTimeout(function () {
         b.type = "text/javascript";
         f.appendChild(b)
       }, 0)
     })();
   </script>
-
+  
   <script type="text/javascript">
-    (function() {
+    (function () {
       var d = document,
         c = window,
         g = c.location.protocol,
@@ -144,15 +31,15 @@
         f = d.getElementsByTagName("head")[0];
       b.src = (g == "https:" ? "https://" : "http://") + "@TENANT_URL@/@TRUSTEER_JUNCTION@/@SNIPPET_ID@/@PASSIVE_DETECTION_JS_NAME@?r=" + Math.random();
       b.async = true;
-      setTimeout(function() {
+      setTimeout(function () {
         b.type = "text/javascript";
         f.appendChild(b)
       }, 0)
     })();
   </script>
-
+  
   <script type="text/javascript">
-    (function() {
+    (function () {
       var c = window,
         d = document,
         g = c.location.protocol,
@@ -160,7 +47,7 @@
         b = d.createElement("script");
       b.src = (g == "https:" ? "https://" : "http://") + "@TENANT_URL@/@TRUSTEER_JUNCTION@/@SNIPPET_ID@/@CRIMINAL_DETECTION_JS_NAME@?r=" + Math.random();
       b.async = true;
-      setTimeout(function() {
+      setTimeout(function () {
         b.type = "text/javascript";
         f.appendChild(b)
       }, 0)
@@ -168,13 +55,19 @@
   </script>
 
   <script type="text/javascript">
-    (function() {
+    (function () {
       document.cookie = "___tk@SNIPPET_ID@=" + encodeURIComponent(new Date().valueOf()) + ";path=/;domain=@DOMAIN_NAME@";
     })();
   </script>
 
   <script type="text/javascript">
     var getFlowCalled = 0;
+    var tick = performance.now();
+    console.log(tick + " ms: base baseline");
+
+    var COLLECTION_MONITOR_TIMEOUT = @COLLECTION_MONITOR_TIMEOUT_TRUSTEER@;
+    var COLLECTION_MONITOR_COUNTER = @GET_FLOW_COUNT_TRUSTEER@;
+    var PAGE_COLLECTION_TIMEOUT = @COLLECTION_PAGE_TIMEOUT@;
 
     function getFormat() {
       var format = "@TAGVALUE_SESSION_INDEX@";
@@ -183,21 +76,66 @@
 
     function getFlow() {
       getFlowCalled++;
-      //Post back to AuthSvc after Trusteer is done
-      if (getFlowCalled == 3) {
-        document.myFlowForm.submit();
+      var me = getFlowCalled;
+      var toc = performance.now();
+      console.log((toc - tick) + " ms: getFlow() called " + getFlowCalled + " times...");
+      if (getFlowCalled == COLLECTION_MONITOR_COUNTER) {
+        clearTimeout(pageTimeout);
+        submitForm();
       }
+      var toc = performance.now();
+      console.log((toc - tick) + " ms: getFlow() called " + me + " times... Done");
     }
+
+    function submitForm() {
+      var toc = performance.now();
+      console.log((toc - tick) + " ms: Sleeping for " + COLLECTION_MONITOR_TIMEOUT + " milliseconds...");
+      setTimeout(function () {
+        var toc = performance.now();
+        console.log((toc - tick) + " ms: Waited for CSID collection, now submitting...");
+        document.getElementById("verifying_message").innerHTML = "$SAML_POST_REQUEST_WAIT$";
+        document.myFlowForm.submit();
+      }, COLLECTION_MONITOR_TIMEOUT)
+    }
+
+    var pageTimeout = setTimeout(function () {
+      document.getElementById("verifying_message").innerHTML = "$SAML_POST_REQUEST_WAIT$";
+      console.log("Page timeout before collection complete...");
+      var outerDiv = document.createElement("div");
+      outerDiv.id = "civerrordiv", outerDiv.align = "center", outerDiv.style = "width:100; margin:0 auto;",
+        outerDiv.innerHTML =
+        "<br><br><br><div style='display: none'><img src=\"https://@TENANT_URL@/@TRUSTEER_JUNCTION@/@SNIPPET_ID@/@TRUSTEER_PINPOINT_END_POINT@?___s@SNIPPET_ID@=@TAGVALUE_SESSION_INDEX@&mfn=@TRUSTEER_NOSCRIPT_JAVASCRIPT_FILE_NAME@\" alt=\"$SAML_POST_REQUEST_WAIT$\"/></div><br><br><br>",
+        document.body.appendChild(outerDiv);
+      setTimeout(function () {
+        console.log("Waited for image CSID collection, now submitting...");
+        document.myFlowForm.submit();
+      }, COLLECTION_MONITOR_TIMEOUT);
+    }, PAGE_COLLECTION_TIMEOUT);
   </script>
+  <link rel="manifest" href="/usc/manifest.json" />
+  <link rel="shortcut icon" type="image/x-icon" href="/usc/favicon.ico" />
+  <link rel="stylesheet" href="/usc/css/stateless.css" />
+  <link rel="stylesheet" href="/idaas/mtfim/static/styles.css" />
+  <link rel="stylesheet" href="/template/v1.0/static/theme.css?themeId=@THEME_ID@" />
 </head>
 
 <body>
-  <div id="civdiv" style="width: 200px; margin: 0px auto;" align="center">Please wait...<br><br>
-    <div id="civispinnerdiv" class="loader" style="width: 120px; margin: 0px auto;"></div>
+  <div style="position: relative; z-index: 0;">
+    <div class="bx--loading-overlay" style="flex-direction: column;">
+      <div aria-live="assertive" class="bx--loading class" style="width:4rem;height:4rem;">
+        <svg class="bx--loading__svg"
+          style="fill: transparent;stroke: #6EA6FF;stroke-width: 7;stroke-linecap: butt;stroke-dasharray: 240;stroke-dashoffset: 40;"
+          viewBox="-75 -75 150 150">
+          <circle cx="0" cy="0" r="37.5"></circle>
+        </svg>
+      </div>
+      <div id="verifying_message">$TRUSTEER_VERIFYING_PAGE_TITLE$...</div>
+    </div>
   </div>
   <form name="myFlowForm" action="@TARGET_URL@" method="GET">
-    @TARGET_URL_QUERY_PARAMETERS@
+    <div style="display: none">
+      @TARGET_URL_QUERY_PARAMETERS@
+    </div>
   </form>
 </body>
-
 </html>

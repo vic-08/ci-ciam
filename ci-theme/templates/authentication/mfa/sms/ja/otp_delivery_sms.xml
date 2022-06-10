@@ -3,8 +3,7 @@
 <root>
 <Message>
   <Value>
-ご使用のパスコードは @OTP_STRING@ です。
-これは、@OTP_LIFETIME@ 分で有効期限が切れます。
+    ご使用のパスコードは @CORRELATION@-@OTP@ です。これは、@OTP_LIFETIME@ 分で有効期限が切れます。
   </Value>
 </Message>
 </root>

@@ -1,3 +1,4 @@
+<!-- Template file path: templates/authentication/mfa/ibmverify/default/ibmverify.html  -->
 <!DOCTYPE html>
 <!--
 	Macro Substitution Values:
@@ -5,82 +6,49 @@
 	DEVICE_NAME: @DEVICE_NAME@
 	DEVICE_TYPE: @DEVICE_TYPE@
 	RESELECT_HIDDEN: @RESELECT_HIDDEN@
+
+	These are the macros for user info
+	NAME: @NAME@
+	FAMILY_NAME: @FAMILY_NAME@
+	GIVEN_NAME: @GIVEN_NAME@
+	PREFERRED_USERNAME: @PREFERRED_USERNAME@
 -->
 <html>
-
 <head>
-	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<title>$VERIFY_LOGIN_TITLE$</title>
 	<base href="/" />
-	<link rel="shortcut icon" type="image/x-icon" href="ui/assets/img/favicon.ico" />
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="shortcut icon" type="image/x-icon" href="usc/favicon.ico" />
 	<link rel="stylesheet" href="usc/css/stateless.css">
-	<title>Sign In - IBM Cloud Identity</title>
+	<link rel="stylesheet" href="/template/v1.0/static/theme.css?themeId=@THEME_ID@" />
+	<script type="text/javascript" src="/authsvc/mtfim/sps/static/ibmverify_login.js"></script>
+	<script type="text/javascript">
+		//START NON-TRANSLATABLE
+		const showUseAnotherMethod = "@SHOW_USE_ANOTHER_METHOD@";
+		//END NON-TRANSLATABLE
+	</script>
 </head>
-<script type="text/javascript">
-	function checkAuthStatus() {
-
-		document.forms[0].submit();
-
-		//Make the web-socket call for auth status
-
-		/* if ("WebSocket" in window) {
-		   //alert("WebSocket is supported by your Browser!");
-
-		   // Let us open a web socket
-		   var ws = new WebSocket("@WSS_AUTH_STATUS_URI@");
-
-		   ws.onopen = function() {
-			  // Web Socket is connected, send data using send()
-			  // ??? ws.send("Message to send");
-			  // alert("Message is sent...");
-		   };
-
-		   ws.onmessage = function (evt) {
-			  var received_msg = evt.data;
-			  //Retrieve the state
-			  var jsonResp = JSON.parse(evt.data);
-			  var state = jsonResp.state;
-
-			  if (state != "PENDING") {
-				ws.close();
-
-				//if state is anything other that PENDING, we conclude
-				document.getElementById("authStatus").value = state;
-
-				//Submit the call
-				document.forms[0].submit();
-			  }
-		   };
-
-		   ws.onclose = function() {
-			  // websocket is closed.
-			  // Ooops we need to fail...
-			  document.forms[0].submit();
-		   };
-		  } else {
-		   // The browser doesn't support WebSocket
-		   alert("WebSocket NOT supported by your Browser!");
-		  } */
-
-
-	}
-</script>
-
-<body cs-device-push class="tile-background">
+<body onload="onLoadPage()">
 	<div data-role="page" class="cs-content">
-		<div data-role="header" class="heading">
-			<div>
-				<h1>IBM<small>®</small></h1>
-				<h2>Cloud Identity</h2>
-			</div>
-		</div>
+		@PAGE_HEADER@
 		<div class="content">
 			<div data-role="content" class="header">
-				<p>You have a pending authentication challenge on device @DEVICE_NAME@ (@DEVICE_TYPE@)</p>
+				<p>$VERIFY_LOGIN_PENDING$ @DEVICE_NAME@ (@DEVICE_TYPE@)</p>
+				<p>$TRANSACTION$ @TRANSACTION_ID@<p>
 				<form action="@ACTION@" method="post" data-ajax="false">
 					<input type="hidden" name="operation" value="verify">
 					<input id="authStatus" type="hidden" name="authStatus" value="FAILED">
 				</form>
+				<form id="use-another-method-form" action="" 
+						method="POST">
+					<input name="operation" type="hidden" value="restart">
+				</form>
+			</div>
+			<br/>
+			<br/>
+			<div class="use-another-method">
+			   <a onclick="goBack()" href="javascript:void(0)">$USE_ANOTHER_METHOD$</a>
 			</div>
 			<!-- div @RESELECT_HIDDEN@ data-role="content">
 					<form action="@ACTION@" method="post" data-ajax="false">
@@ -90,12 +58,7 @@
 					</form>
 				</div -->
 		</div>
+		@PAGE_FOOTER@
 	</div>
-	<script>
-		setTimeout(function () {
-			checkAuthStatus();
-		}, 10000);
-	</script>
 </body>
-
 </html>

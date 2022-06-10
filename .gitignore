@@ -1,14 +1,9 @@
 # Ignore below items of ci-theme
-/ci-theme/*.zip
 /ci-theme/theme.properties
 /ci-theme/tmp/
 
 # Ignore all .DS_Store file -
 .DS_Store
-
-# Ignore package-lock.json
-package-lock.json
-
 
 # Logs
 logs
@@ -83,6 +78,7 @@ web_modules/
 # dotenv environment variables file
 .env
 .env.test
+env.*
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache

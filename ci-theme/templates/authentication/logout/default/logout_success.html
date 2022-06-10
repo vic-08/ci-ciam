@@ -1,21 +1,59 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<!--
-     Macro Substitution Values:
-         IDAAS_LOGOUT_URL: @IDAAS_LOGOUT_URL@
- -->
-<html ng-app="app">
+<!-- Template file path: templates/authentication/logout/default/logout_success.html  -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>$LOGOUT_OK_TITLE$</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ffffff" />
 
-<head>
-	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
-	<base href="/" />
-	<title id="title" ng-bind="pageTitle"></title>
-	<link rel="shortcut icon" type="image/x-icon" href="ui/assets/img/favicon.ico">
-	<script type="text/javascript" src="ui/assets/_js?include=templates/uiLogout/uiLogout"></script>
-	<link rel="stylesheet" href="usc/css/stateless.css">
-	<img src="@IDAAS_LOGOUT_URL@" style="display:none;" height="1" width="1">
-</head>
+    <!-- Load the Verify-specific stylesheets -->
+    <link
+      rel="stylesheet"
+      href="/template/v1.0/static/theme.css?themeId=@THEME_ID@"
+    />
+  </head>
 
-<body cs-ui-logout></body>
+  <body class="insurance-page gary-bg">
+    <div class="overlay-background">
+      <div class="overlay-content login-wrap">
+        <div class="overlay-logo">
+          <a href="$DEMO_APPLICATION_URL$/"
+            ><img src="/template/v1.0/static/logo.svg?themeId=@THEME_ID@"
+          /></a>
+        </div>
+        <div class="content">
+          <span id="sign-out-successful-message"
+            >$LOGOUT_OK_SIGNOUT_SUCCESSFUL$</span
+          >
+          <div class="separator"></div>
+          <a
+            href="$DEMO_APPLICATION_URL$"
+            class="blue"
+            id="cs-button-return-home"
+            >$RETURN_HOME$</a
+          >
+        </div>
+      </div>
+    </div>
+    <div class="footer">
+      <div class="footer-container">
+        @PAGE_FOOTER@
+      </div>
+    </div>
+    <script language="JavaScript">
+      sessionStorage.clear();
+      localStorage.clear();
 
+      var cookies = document.cookie;
+      for (var i = 0; i < cookies.split(";").length; ++i) {
+        var myCookie = cookies[i];
+        var pos = myCookie.indexOf("=");
+        var name = pos > -1 ? myCookie.substr(0, pos) : myCookie;
+        // console.log("Cookie to delete = " + name);
+        document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+      }
+    </script>
+  </body>
 </html>
+

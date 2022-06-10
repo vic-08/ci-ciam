@@ -9,9 +9,10 @@
 <Message>
   <Value>
 	<![CDATA[<html>
+<!-- Template file path: templates/authentication/mfa/email/de/otp_delivery_email.xml  -->
 		<body style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; color: #121212; padding: 12px;">
 			<h1 style="color: #4178BE;">Ihr Kennwort für einmaliges Anmelden (OTP) ist: </h1>
-			<h2 style="color: #666666;">@OTP_STRING@</h2>
+			<h2 style="color: #666666;">@CORRELATION@-@OTP@</h2>
 			<p>Verwenden Sie dieses OTP zur Ausführung Ihrer Anforderung. Es läuft nach @OTP_LIFETIME@ Minuten ab. </p>
 			<p>Bitte antworten Sie nicht auf diese E-Mail. </p>
 		</body>

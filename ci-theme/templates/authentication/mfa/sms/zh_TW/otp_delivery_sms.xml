@@ -3,8 +3,7 @@
 <root>
 <Message>
   <Value>
-    您的密碼為：@OTP_STRING@。
-它將在 @OTP_LIFETIME@ 分鐘後到期。
+    您的密碼為：@CORRELATION@-@OTP@。 它將在 @OTP_LIFETIME@ 分鐘後到期。
   </Value>
 </Message>
 </root>

@@ -3,8 +3,7 @@
 <root>
 <Message>
   <Value>
-    Vaše přístupové heslo: @OTP_STRING@.
-Jeho platnost vyprší za @OTP_LIFETIME@ minut.
+    Vaše přístupové heslo: @CORRELATION@-@OTP@. Jeho platnost vyprší za @OTP_LIFETIME@ minut.
   </Value>
 </Message>
 </root>

@@ -3,8 +3,7 @@
 <root>
 <Message>
   <Value>
-    Ваш секретный код: @OTP_STRING@.
-Его срок действия истечет через @OTP_LIFETIME@ минут.
+    Ваш секретный код: @CORRELATION@-@OTP@. Его срок действия истечет через @OTP_LIFETIME@ минут.
   </Value>
 </Message>
 </root>

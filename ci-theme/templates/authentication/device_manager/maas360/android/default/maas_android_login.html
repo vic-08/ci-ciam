@@ -1,3 +1,4 @@
+<!-- Template file path: templates/authentication/device_manager/maas360/android/default/maas_android_login.html  -->
 <!DOCTYPE html>
 <!--
 	Macro Substitution Values:
@@ -10,152 +11,34 @@
     REDIRECT_URL: @REDIRECT_URL@
 -->
 <html>
-
 <head>
-	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<title>$LOGIN_TITLE$</title>
 	<base href="/" />
-	<link rel="shortcut icon" type="image/x-icon" href="ui/assets/img/favicon.ico" />
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Sign In - IBM Cloud Identity</title>
+	<link rel="shortcut icon" type="image/x-icon" href="usc/favicon.ico" />
 	<link rel="stylesheet" href="usc/css/stateless.css" />
-</head>
-<style>
-	.button {
-			font-size: 18px;
-	}
-</style>
-<script type="text/javascript">
-<!--  START NON-TRANSLATABLE  -->
-	function initProcessing() {
+	<link rel="stylesheet" href="/template/v1.0/static/theme.css?themeId=@THEME_ID@" />
+	<style>
+		.button {
+				font-size: 18px;
+		}
+	</style>
+	<script type="text/javascript">
+		<!--  START NON-TRANSLATABLE  -->
 		var btnClicked = "@BTN_CLICKED@";
 		var withHeader = "@WITH_XREQWITH@";
-		if (btnClicked == "0") {
-			// The button is not clicked yet - authentication has not started yet.
-			if (withHeader == "com.fiberlink.maas360.android.securebrowser") {
-				//invokeHref will launch the MaaS360 app, this is for MaaS360 secure browser
-				invokeHref(btnClicked);
-			}
-		} else {
-			// btnCliked is 1, button has been hit earlier - authentication has been started
-			if (withHeader == "0" ) {
-				// invokeHref(1) will show the message and hide the button, it will not launch MaaS360 app
-				invokeHref(btnClicked);
-			}
-			// button has been hit and withHeader is not 0, i.e. for webview, hide button and show message accordingly
-			else {
-				document.getElementById("authButtonDiv").style.display = "none";
-				// Show message to launch MaaS app if user agent is standard and device is Q or above
-				var userAgent = navigator.userAgent;
-				if (isStandardUserAgent(userAgent)){
-					if (isAndroidQOrAbove(userAgent)){ 
-						document.getElementById("openMaaSAppMessage").style.display = "block";
-					}
-				}
-				else {
-					// Show message to launch MaaS app if app has custom user agent
-					document.getElementById("openMaaSAppMessage").style.display = "block";
-				}
-			}
-		}
-	}
-
-	function invokeHref(clicked) {
-		if (clicked == "0") {
-			try {
-				//click or tap the href
-				document.getElementById("certUrlHref").click();
-			} catch (err) {
-				console.log("Unable to invoke HREF!");
-				console.error(err, err.stack);
-			}
-
-			//set button clicked to true
-			document.getElementById("btnclicked").value = "1";
-		}
-
-		//hide the button
-		document.getElementById("authButtonDiv").style.display = "none";
-
-		//show the authentication message
-		document.getElementById("authMessage").style.display = "block";
-	}
-
-	function handleWebViewAuth(clicked) {
-		if (clicked == 0) {
-			var withHeader = "@WITH_XREQWITH@";
-			if (withHeader == "0" || withHeader == "com.fiberlink.maas360.android.securebrowser") {
-				//This is not web view but needs button click to launch the MaaS360 app
-				//invokeHref will launch MaaS360 app
-				invokeHref(clicked);
-			} else {
-				//This is webview, app launch is not possible, copy the launch URL to clipboard
-				//copy the cert submission URL to clipboard
-				//Manual launch of authentication app is needed
-				var textArea = document.createElement("textarea");
-				textArea.value = "@CERT_SUBMISSION_URL@";
-
-				document.body.appendChild(textArea);
-				textArea.select();
-				document.getElementById("authButtonDiv").style.display = "none";
-				// Give message to user to launch MaaS app manually for Android Q and above
-				var userAgent = navigator.userAgent;
-				if (isStandardUserAgent(userAgent)) {
-					if (isAndroidQOrAbove(userAgent)) {
-						document.getElementById("openMaaSAppMessage").style.display = "block";
-					}
-					else {
-						document.getElementById("authMessage").style.display = "block";
-					}
-				}
-				else {
-					document.getElementById("authMessage").style.display = "block";
-				}
-				try {
-					var successful = document.execCommand("copy");
-					var msg = successful ? "successful" : "unsuccessful";
-					console.log("Copying text to clipboard was " + msg);
-				} catch (err) {
-					console.log("Unable to copy from clipboard!");
-					console.error(err, err.stack);
-				}
-
-				document.body.removeChild(textArea);
-			}
-
-			//set button clicked to true
-			document.getElementById("btnclicked").value = "1";
-		}
-
-	}
-	
-	function isStandardUserAgent(userAgent)
-	{
-		return userAgent.indexOf("Linux; Android ") >= 0;
-	}
-	
-	function isAndroidQOrAbove(userAgent)
-	{
-		try {
-			return parseFloat(userAgent.slice(userAgent.indexOf("Android")+8)) >= 10;
-			}
-		catch(err) {
-			console.log("Unable to parse user agent header");
-			console.error(err, err.stack);
-		}
-		return false;
-	}
-	<!--  END NON-TRANSLATABLE  -->
-</script>
-
-<body class="tile-background" onload="initProcessing()">
+		var certSubmissionURL = "@CERT_SUBMISSION_URL@";
+		var waitTime = @WAIT@;
+		var cookieDisableMessage="$MAAS_COOKIE_DISABLED_MESSAGE$";
+		<!--  END NON-TRANSLATABLE  -->
+	</script>
+	<script type="text/javascript" src="/authsvc/mtfim/sps/static/common.js"></script>
+</head>
+<body onload="initProcessing()">
 	<div data-role="page" class="cs-content">
-		<div data-role="header" class="heading">
-			<div>
-				<h1>IBM<small>®</small></h1>
-				<h2>Cloud Identity</h2>
-			</div>
-			<div class="cs-select-login-provider-instructions">Sign in with</div>
-		</div>
+		@PAGE_HEADER@
+		<div class="cs-select-login-provider-instructions">$MAAS_LOGIN$</div>
 		<div class="content">
 			<div data-role="content" class="header">
 				<p>@MESSAGE@</p>
@@ -167,29 +50,26 @@
 			<div id="topDiv" class="message">
 				<div class="spaced" id="authButtonDiv">
 					<a class="cs-link-button cs-button-primary-deprecated" id="authButton" onclick="handleWebViewAuth(0);" href="javascript:void(0)" >
-						<span class="ng-scope">MaaS360</span>
+						<span>$MAAS_LOGIN_LABEL$</span>
 					</a>
 				</div>
 				<div class="spaced" id="authMessage" style="display: none; top: 0px; left: 0px; opacity: 1;">
-					<p style="font-size:18px">Attempting MaaS360 user authentication...</p>
+					<p style="font-size:18px">$MAAS_LOGIN_ATTEMPTING$</p>
 				</div>
 				<div style="display: none; top: 0px; left: 0px; opacity: 0;">
-					<a id="certUrlHref" href="@CERT_SUBMISSION_URL@" class="button cs-button">Click here to authenticate</a>
+					<a id="certUrlHref" href="@CERT_SUBMISSION_URL@" class="button cs-button">$MAAS_LOGIN_CLICK_HERE$</a>
 				</div>
 				<div class="spaced" id="openMaaSAppMessage" style="display: none; top: 0px; left: 0px; opacity: 1;">
-					<p style="font-size:18px">Launch MaaS360 app to authenticate</p>
+					<p style="font-size:18px">$MAAS_LOGIN_LAUNCH$</p>
 				</div>
 				<div class="spaced">
-					<a href="@REDIRECT_URL@">Other sign-in options</a>
+					<a href="@REDIRECT_URL@">$MAAS_LOGIN_OTHER_OPTIONS$</a>
 				</div>
 			</div>
 		</div>
+		@PAGE_FOOTER@
 	</div>
-	<script>
-		setTimeout(function () {
-			document.forms[0].submit();
-		}, @WAIT@);
-	</script>
+	<!-- Please do not move JS code from here, it may affect functionality -->
+	<script type="text/javascript" src="/authsvc/mtfim/sps/static/maasandroid_login.js"></script>
 </body>
-
 </html>

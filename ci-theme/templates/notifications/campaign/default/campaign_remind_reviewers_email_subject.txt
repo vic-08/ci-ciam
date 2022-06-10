@@ -1,1 +1,1 @@
-You are an assigned reviewer for the campaign @CERTIFICATION.NAME@. This campaign will end on @CERTIFICATION.ENDDATE@.
+Reminder: You still have pending reviews for the campaign @CERTIFICATION.NAME@. This campaign will end on @CERTIFICATION.ENDDATE@.

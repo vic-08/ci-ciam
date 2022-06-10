@@ -3,8 +3,7 @@
 <root>
 <Message>
   <Value>
-    Sua senha é: @OTP_STRING@.
-Ela expira em @OTP_LIFETIME@ minutos.
+    Sua senha é: @CORRELATION@-@OTP@. Ela expira em @OTP_LIFETIME@ minutos.
   </Value>
 </Message>
 </root>
